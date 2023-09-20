@@ -106,6 +106,26 @@ function checkWin() {
   }
   return null;
 }
+        // Function to handle a player's move
+function handleMove(position) {
+  if (board[position] === '') {
+    board[position] = currentPlayer;
+    currentPlayer = currentPlayer === 'X' ? 'O' : 'X';
+    // Call a function to update the game UI
+    updateUI();
+
+    // Check for a win
+    const winner = checkWin();
+    if (winner) {
+      document.getElementById('message').textContent = `${winner} WINS!`;
+      // Disable further moves
+      const squares = document.querySelectorAll('.square');
+      for (let i = 0; i < squares.length; i++) {
+        squares[i].removeEventListener('click', handleMove);
+      }
+    }
+  }
+}
     </script>
 </body>
 </html>
