@@ -1,10 +1,101 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>My Website</title>
+    <title>Tic Tac Toe</title>
+    <style>
+        #board {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(3, 1fr);
+  gap: 10px;
+}
+
+.square {
+  width: 100px;
+  height: 100px;
+  background-color: lightgray;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 24px;
+  cursor: pointer;
+}
+
+.square:hover {
+  background-color: gray;
+}
+
+#message {
+  margin-top: 20px;
+  font-size: 18px;
+  font-weight: bold;
+}
+    </style>
 </head>
 <body>
-    <h1>Welcome to My Website!</h1>
-    <p>This is the content of my website.</p>
+    <h1>Tic Tac Toe</h1>
+    <div id="board">
+        <!DOCTYPE html>
+<html>
+<head>
+    <title>Tic Tac Toe</title>
+    <style>
+        /* Add your CSS styling here */
+    </style>
+</head>
+<body>
+    <h1>Tic Tac Toe</h1>
+    <div id="board">
+        <div class="square" onclick="handleMove(0)"></div>
+        <div class="square" onclick="handleMove(1)"></div>
+        <div class="square" onclick="handleMove(2)"></div>
+        <div class="square" onclick="handleMove(3)"></div>
+        <div class="square" onclick="handleMove(4)"></div>
+        <div class="square" onclick="handleMove(5)"></div>
+        <div class="square" onclick="handleMove(6)"></div>
+        <div class="square" onclick="handleMove(7)"></div>
+        <div class="square" onclick="handleMove(8)"></div>
+    </div>
+    <script>
+        // Define the game board
+let board = ['', '', '', '', '', '', '', '', ''];
+
+// Define the current player
+let currentPlayer = 'X';
+
+// Function to handle a player's move
+function handleMove(position) {
+  if (board[position] === '') {
+    board[position] = currentPlayer;
+    currentPlayer = currentPlayer === 'X' ? 'O' : 'X';
+    // Call a function to update the game UI
+    updateUI();
+  }
+}
+
+// Function to update the game UI
+function updateUI() {
+  // Update the game board display
+  const squares = document.querySelectorAll('.square');
+  for (let i = 0; i < squares.length; i++) {
+    squares[i].textContent = board[i];
+  }
+}
+
+// Add event listeners to the game board squares
+const squares = document.querySelectorAll('.square');
+for (let i = 0; i < squares.length; i++) {
+  squares[i].addEventListener('click', function() {
+    handleMove(i);
+  });
+}
+    </script>
+</body>
+</html>
+    </div>
+
+    <script>
+        // Add your JavaScript code here
+    </script>
 </body>
 </html>
